@@ -140,8 +140,6 @@ class OrderController extends Controller
         $validation=Validator::make($request->all(),[
             'receiver_name'=>'required',
             'email'=>'required|email',
-            'receiver_mobile'=>'required|min:11|max:11|',
-
             'address'=>'required',
             'paymentMethod'=>'required|in:cod,online'
             ]);

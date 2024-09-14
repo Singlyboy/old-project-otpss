@@ -4,249 +4,207 @@
 @section('content')
 
 <style>
- 
-.dbox {
-    position: relative;
-    background: rgb(255, 86, 65);
-    background: -moz-linear-gradient(top, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
-    background: -webkit-linear-gradient(top, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
-    background: linear-gradient(to bottom, rgba(255, 86, 65, 1) 0%, rgba(253, 50, 97, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ff5641', endColorstr='#fd3261', GradientType=0);
-    border-radius: 4px;
-    text-align: center;
-    margin: 60px 0 50px;
-}
-.dbox__icon {
-    position: absolute;
-    transform: translateY(-50%) translateX(-50%);
-    left: 50%;
-}
-.dbox__icon:before {
-    width: 75px;
-    height: 75px;
-    position: absolute;
-    background: #fda299;
-    background: rgba(253, 162, 153, 0.34);
-    content: '';
-    border-radius: 50%;
-    left: -17px;
-    top: -17px;
-    z-index: -2;
-}
-.dbox__icon:after {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    background: #f79489;
-    background: rgba(247, 148, 137, 0.91);
-    content: '';
-    border-radius: 50%;
-    left: -10px;
-    top: -10px;
-    z-index: -1;
-}
-.dbox__icon > i {
-    background: #ff5444;
-    border-radius: 50%;
-    line-height: 40px;
-    color: #FFF;
-    width: 40px;
-    height: 40px;
-	font-size:22px;
-}
-.dbox__body {
-    padding: 50px 20px;
-}
-.dbox__count {
-    display: block;
-    font-size: 30px;
-    color: #FFF;
-    font-weight: 300;
-}
-.dbox__title {
-    font-size: 13px;
-    color: #FFF;
-    color: rgba(255, 255, 255, 0.81);
-}
-.dbox__action {
-    transform: translateY(-50%) translateX(-50%);
-    position: absolute;
-    left: 50%;
-}
-.dbox__action__btn {
-    border: none;
-    background: #FFF;
-    border-radius: 19px;
-    padding: 7px 16px;
-    text-transform: uppercase;
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: .5px;
-    color: #003e85;
-    box-shadow: 0 3px 5px #d4d4d4;
-}
+        .circle-tile {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .circle-tile-heading {
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 100%;
+        color: #FFFFFF;
+        height: 80px;
+        margin: 0 auto -40px;
+        position: relative;
+        transition: all 0.3s ease-in-out 0s;
+        width: 80px;
+    }
+    .circle-tile-heading .fa {
+        line-height: 80px;
+    }
+    .circle-tile-content {
+        padding-top: 50px;
+    }
+    .circle-tile-number {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 5px 0 15px;
+    }
+    .circle-tile-description {
+        text-transform: uppercase;
+    }
+    .circle-tile-footer {
+        background-color: rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        display: block;
+        padding: 5px;
+        transition: all 0.3s ease-in-out 0s;
+    }
+    .circle-tile-footer:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
+    .circle-tile-heading.dark-blue:hover {
+        background-color: #2E4154;
+    }
+    .circle-tile-heading.green:hover {
+        background-color: #138F77;
+    }
+    .circle-tile-heading.orange:hover {
+        background-color: #DA8C10;
+    }
+    .circle-tile-heading.blue:hover {
+        background-color: #2473A6;
+    }
+    .circle-tile-heading.red:hover {
+        background-color: #CF4435;
+    }
+    .circle-tile-heading.purple:hover {
+        background-color: #7F3D9B;
+    }
+    .tile-img {
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+    }
 
+    .dark-blue {
+        background-color: #34495E;
+    }
+    .green {
+        background-color: #16A085;
+    }
+    .blue {
+        background-color: #2980B9;
+    }
+    .orange {
+        background-color: #F39C12;
+    }
+    .red {
+        background-color: #E74C3C;
+    }
+    .purple {
+        background-color: #8E44AD;
+    }
+    .dark-gray {
+        background-color: #7F8C8D;
+    }
+    .gray {
+        background-color: #95A5A6;
+    }
+    .light-gray {
+        background-color: #BDC3C7;
+    }
+    .yellow {
+        background-color: #F1C40F;
+    }
+    .text-dark-blue {
+        color: #34495E;
+    }
+    .text-green {
+        color: #16A085;
+    }
+    .text-blue {
+        color: #2980B9;
+    }
+    .text-orange {
+        color: #F39C12;
+    }
+    .text-red {
+        color: #E74C3C;
+    }
+    .text-purple {
+        color: #8E44AD;
+    }
+    .text-faded {
+        color: rgba(255, 255, 255, 0.7);
+    }
 
-.dbox--color-2 {
-    background: rgb(252, 190, 27);
-    background: -moz-linear-gradient(top, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
-    background: -webkit-linear-gradient(top, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
-    background: linear-gradient(to bottom, rgba(252, 190, 27, 1) 1%, rgba(248, 86, 72, 1) 99%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fcbe1b', endColorstr='#f85648', GradientType=0);
-}
-.dbox--color-2 .dbox__icon:after {
-    background: #fee036;
-    background: rgba(254, 224, 54, 0.81);
-}
-.dbox--color-2 .dbox__icon:before {
-    background: #fee036;
-    background: rgba(254, 224, 54, 0.64);
-}
-.dbox--color-2 .dbox__icon > i {
-    background: #fb9f28;
-}
-
-.dbox--color-3 {
-    background: rgb(183,71,247);
-    background: -moz-linear-gradient(top, rgba(183,71,247,1) 0%, rgba(108,83,220,1) 100%);
-    background: -webkit-linear-gradient(top, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
-    background: linear-gradient(to bottom, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b747f7', endColorstr='#6c53dc',GradientType=0 );
-}
-.dbox--color-3 .dbox__icon:after {
-    background: #b446f5;
-    background: rgba(180, 70, 245, 0.76);
-}
-.dbox--color-3 .dbox__icon:before {
-    background: #e284ff;
-    background: rgba(226, 132, 255, 0.66);
-}
-.dbox--color-3 .dbox__icon > i {
-    background: #8150e4;
-}     
 </style>
 
 <h1>Dashboard</h1>
 
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<div class="container bootstrap snippets bootdey">
+  <div class="row">
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded">Total Customers</div>
+          <div class="circle-tile-number text-faded ">{{$customerCount}}</div>
+          <a class="circle-tile-footer" href="{{route('customer.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+     
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content red">
+          <div class="circle-tile-description text-faded"> Total Sale</div>
+          <div class="circle-tile-number text-faded ">{{$totalSale}}</div>
+          <a class="circle-tile-footer" href="{{route('order.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading yellow "><i class="fa fa-envelope fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content yellow">
+          <div class="circle-tile-description text-faded"> Total Parts </div>
+          <div class="circle-tile-number text-faded ">{{ $partsCount}}</div>
+          <a class="circle-tile-footer" href="{{route('parts.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading orange"><i class="fa fa-comments fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content orange">
+          <div class="circle-tile-description text-faded"> Total Order </div>
+          <div class="circle-tile-number text-faded ">{{$orderCount}}</div>
+          <a class="circle-tile-footer" href="{{route('order.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
 
-<div class="container">
-	<div class="row">
-		<div class="col-md-3">
-			<div class="dbox dbox--color-1">
-				<div class="dbox__icon">
-					<i class="	glyphicon glyphicon-user"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$customerCount}}</span>
-					<span class="dbox__title">Total Customers</span>
-				</div>
-				
-				<div class="dbox__action">
-					<a class="dbox__action__btn" href="{{route('customer.list')}}">More Info</a>
-         
-				</div>				
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="dbox dbox--color-2">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-usd"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$totalSale}}</span>
-					<span class="dbox__title">Total Sale</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('order.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="dbox dbox--color-3">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-heart"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{ $partsCount}}</span>
-					<span class="dbox__title">Total Parts</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('parts.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
-    <div class="col-md-3">
-			<div class="dbox dbox--color-4">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-download"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$orderCount}}</span>
-					<span class="dbox__title">Total Order</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('order.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading yellow "><i class="fa fa-envelope fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content yellow">
+          <div class="circle-tile-description text-faded"> Today Sale </div>
+          <div class="circle-tile-number text-faded ">{{$todaySele}}</div>
+          <a class="circle-tile-footer" href="{{route('order.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
 
-    <div class="col-md-3">
-			<div class="dbox dbox--color-2">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-gbp"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$todaySele}}</span>
-					<span class="dbox__title">Today Sale</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('order.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
-    <div class="col-md-3">
-			<div class="dbox dbox--color-3">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-download"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$todayOrder}}</span>
-					<span class="dbox__title">Today Order</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('order.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
-    <div class="col-md-3">
-			<div class="dbox dbox--color-1">
-				<div class="dbox__icon">
-					<i class="glyphicon glyphicon-import"></i>
-				</div>
-				<div class="dbox__body">
-					<span class="dbox__count">{{$pendingOrder}}</span>
-					<span class="dbox__title">Panding Order</span>
-				</div>
-				
-				<div class="dbox__action">
-        <a class="dbox__action__btn" href="{{route('order.list')}}">More Info</a>
-				</div>				
-			</div>
-		</div>
+	<div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content red">
+          <div class="circle-tile-description text-faded"> Today Order</div>
+          <div class="circle-tile-number text-faded ">{{$todayOrder}}</div>
+          <a class="circle-tile-footer" href="{{route('order.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
+    <div class="col-lg-2 col-sm-6">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading dark-blue"><i class="fa fa-envelope fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> Panding Order </div>
+          <div class="circle-tile-number text-faded ">{{$pendingOrder}}</div>
+          <a class="circle-tile-footer" href="{{route('order.list')}}">More Info<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div> 
    
-
-	</div>
-</div>
+  </div> 
+</div>  
 
 
 @endsection

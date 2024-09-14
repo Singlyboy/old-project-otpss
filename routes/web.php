@@ -61,6 +61,8 @@ Route::post('/dologin',[AuthenticationController::class,'dologin'])->name('dolog
 Route::Group(['middleware'=>'auth'],function(){
     
     Route::get('/',[HomeController::class,'home'])->name('dashboard');
+    //stock alart
+    Route::post('/set-alert-stock',[PartsController::class,'setAlertStock'])->name('set.alert.stock');
     Route::get('/logout',[AuthenticationController::class, 'logout'])->name('logout');
 
     //customer route

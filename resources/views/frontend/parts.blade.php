@@ -48,7 +48,7 @@
               @endif
               
               </button>
-              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger flex-fill ms-1" data-mdb-ripple-color="dark">Buy now</button>
+              <!-- <a href="{{route('view.cart')}}"  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-danger flex-fill ms-1" data-mdb-ripple-color="dark">Buy now</a> -->
             </div>
           </div>
         </div>

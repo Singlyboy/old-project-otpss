@@ -24,7 +24,7 @@ class CustomerController extends Controller
             'customer_name'=>'required',
             'email'=>'required|email',
             'password'=>'required|min:6|confirmed',
-            'mobile_number'=>'required|min:11|max:11'
+            'mobile_number'=>'required|digits:11|numeric'
             
         ]);
 

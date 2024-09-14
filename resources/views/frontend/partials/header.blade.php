@@ -295,7 +295,7 @@
 
           <div>
             <label for="">Enter your Mobile Number:</label>
-            <input required type="text" name="mobile_number" placeholder="Enter your Mobile number" class="form-control">
+            <input required type="tel" name="mobile_number" placeholder="Enter your Mobile number" class="form-control">
           </div>
 
         </div>
