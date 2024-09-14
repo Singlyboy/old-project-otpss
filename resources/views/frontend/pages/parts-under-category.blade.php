@@ -5,6 +5,8 @@
 
 <section style="background-color: #eee;">
   <div class="container py-5">
+  <div class="row"> <h1>Parts Under Categorys</h1>
+
     <div class="row">
 
 
@@ -39,9 +41,6 @@
               <a href="{{route('add.to.cart',$par->id)}}" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary flex-fill me-1" data-mdb-ripple-color="dark">
                 Add to cart
               </a>
-              <a class="btn" href="{{route('add.wishlist',$par->id)}}">
-              <svg fill="red" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
-               </a>
     
             @else
               <a disabled href="" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary flex-fill me-1" data-mdb-ripple-color="dark">

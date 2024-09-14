@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\Frontend\PartsController as FrontendPartsController;
 use App\Http\Controllers\Frontend\CustomerController as FrontendCustomerController;
-
+use App\Http\Controllers\WishListController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -38,6 +38,7 @@ Route::post('/update-cart/{partsid}',[OrderController::class,'updateCart'])->nam
 Route::get('/clear-cart',[OrderController::class, 'clearCart'])->name('cart.clear');
 Route::get('/cart/item/delete/{id}',[OrderController::class, 'cartItemDelete'])->name('cart.item.delete');
 Route::get('/search',[FrontendPartsController::class,'search'])->name('search');
+Route::get('/parts-under-category/{category_id}',[FrontendHomeController::class,'partsUnderCategory'])->name('parts.under.category');
 
 //authentication for user login for frontend
 Route::group(['middleware'=>'customer_auth'],function (){
@@ -49,6 +50,7 @@ Route::get('/order-cancel/{order_id}',[FrontendCustomerController::class,'cancel
 
 Route::get('/view-invoice/{id}',[OrderController::class,'viewInvoice'])->name('view.invoice');
 Route::post('/success', [PaymentController::class, 'success']);
+Route::get('/add-to-wishlist/{parts_id}',[WishListController::class,'addToWishList'])->name('add.wishlist');
 });
 
  
@@ -90,6 +92,11 @@ Route::Group(['middleware'=>'auth'],function(){
     Route::get('/category',[CategoryController::class,'category'])->name('category.list');
     Route::get('/category-form',[CategoryController::class,'form'])->name('category.form');
     Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
+
+    //update and delate
+    Route::get('/category/delete/{c_id}',[CategoryController::class,'delete'])->name('category.delete');
+      Route::get('/category/edit/{c_id}',[CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/category/update/{c_id}',[CategoryController::class, 'update'])->name('category.update');
 
 
     Route::get('/machine',[MachineController::class,'machine'])->name('machine.list');

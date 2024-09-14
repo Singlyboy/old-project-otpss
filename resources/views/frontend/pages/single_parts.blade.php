@@ -22,12 +22,24 @@
                         <p class="lead">description here</p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
+                        
+                         @if($singleParts->stock>0)
                         <a class="btn btn-primary flex-shrink-0" href="{{route('add.to.cart', $singleParts->id)}}">
                         <i class="bi-cart-fill me-1"></i>
                         Add to cart
-                    </a>
+                        </a>
+                        <a class="btn" href="{{route('add.wishlist',$singleParts->id)}}">
+                        <svg fill="red" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z"/></svg>
+                        </a>
 
-                            </button>
+                        @else
+                        <a disabled class="btn btn-primary flex-shrink-0" href="">
+                        <i class="bi-cart-fill me-1"></i>
+                        Add to cart
+                        </a>
+                        @endif
+
+                        </button>
                         </div>
                     </div>
                 </div>
