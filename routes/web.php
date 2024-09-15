@@ -115,7 +115,6 @@ Route::Group(['middleware'=>'auth'],function(){
    // Route::get('/business-form',[BusinessController::class,'form'])->name('business.form');
     //Route::post('/business-store',[BusinessController::class,'store'])->name('business.store');
     Route::get('/admin',[AdminController::class,'admin'])->name('admin.list');
-    // Route::get('/create-form',[BusinessController::class,'create'])->name('admin.create');
-    //Route::post('/admin-role',[BusinessController::class,'role'])->name('admin.role');
+  
 });
 });

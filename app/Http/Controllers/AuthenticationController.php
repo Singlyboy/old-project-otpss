@@ -21,7 +21,7 @@ public function dologin(Request $request)
     
     if($check)
     {
-        notify()->success('Laravel Notify is awesome!');
+        notify()->success('welcome To Login!');
         return redirect()->route('dashboard');
 
     }else{

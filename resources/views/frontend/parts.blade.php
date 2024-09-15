@@ -18,6 +18,10 @@
           <div class="card-body">
             <div class="text- mt-2">
               <h2 class="card-title">{{$par->name}}</h2>
+              @if($par->discount>0)
+              <span class="badge badge-success">{{$par->discount}}%</span>
+              @endif
+              
                 </div>
 
             <div class="text-">
@@ -25,7 +29,12 @@
                 <h5 class="mb-0">Category: {{$par->category->name}}</h5>
               </div>
               <div class="d-flex flex-column mb-4 lead">
+              @if($par->discount>0)
+                <span class="mb-2"><del>{{$par->price}} BDT</del></span>
+                <span class="mb-2">{{$par->price - ($par->price/$par->discount)}} BDT</span>
+                @else
                 <span class="mb-2">{{$par->price}} BDT</span>
+                @endif
                 <p>Stock : {{$par->stock >0 ?  $par->stock : 'out of stock'}}</p>
               </div>
               

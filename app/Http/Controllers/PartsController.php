@@ -29,7 +29,8 @@ public function store(Request $request)
         'par_price'=>'required|numeric',
          'par_image'=>'required',
         'category_id'=>'required',
-        'par_stock'=>'required|numeric'
+        'par_stock'=>'required|numeric',
+        'par_discount'=>'nullable|numeric'
     ]);
 
     if($validation->fails())
@@ -49,6 +50,7 @@ public function store(Request $request)
      
         'name'=>$request->par_name,
         'description'=>$request->par_description,
+        'discount'=>$request->par_discount,
         'price'=>$request->par_price,
         'stock'=>$request->par_stock,
         'image'=>$image,

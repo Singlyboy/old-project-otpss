@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('price');
+            $table->integer('discount')->nullable();
             $table->integer('stock');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->integer('category_id');
             $table->timestamps();
         });
